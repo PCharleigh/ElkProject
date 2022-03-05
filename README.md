@@ -6,7 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-  -  View folder[Ansible](https://github.com/PCharleigh/ElkProject/tree/main/Ansible) for playbooks.
+  -  View folder 9[Ansible](https://github.com/PCharleigh/ElkProject/tree/main/Ansible) for playbooks.
 
 This document contains the following details:
 - Description of the Topologu
@@ -42,29 +42,32 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - _TODO: Add whitelisted IP addresses_
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the Jump Box Provisioner.
+- _TODO: Which machine did you allow to access your ELK VM? What was its IP address? Only the Jump Box can access the Elk server
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
+| Jump Box | No                  | 66.46.55.146         |
+| Elk Sever| No                  | 40.71.98.33          |
 |          |                     |                      |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it saves time and reduces the chances of mistakes, especially when configuring multiple machines. 
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+-Install docker.io
+-Install python3-pip
+-Install docker modules
+-Increase virtual memory
+-Download and launch docker elk container
+-Enable sevrice docker on boot
+
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
