@@ -57,6 +57,9 @@ A summary of the access policies in place can be found in the table below.
 | Web-1    | No                  | 40.71.98.33          |
 | Web-2    | No                  | 40.71.98.33          |
 | Web-3    | No                  | 40.71.98.33          |
+
+
+Connection to the Jump Box is accessed through port 22, as well as the Jump Box accessing the servers through port 22. The Jump Box can reach the Elk server because the two virtual networks are able to communicate through a peer connection. The dwva containers are can only be accessed through port 80. As for the Elk server, it allows all traffic in through port 5601. The Elk server is publically accessable because there were minimal security rules placed and it is not behind a load balancer unlike the other VM servers. 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it saves time and reduces the chances of mistakes, especially when configuring multiple machines. 
