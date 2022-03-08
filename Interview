@@ -1,0 +1,10 @@
+Faulty Fire wall
+
+Lets say I have  faulty fire wall that's allowing SSh connections when it is suppose to be denying SSh connections. 
+
+Within my Elk project, I added SSH connections to SSH into the Jump Box Provisioner and into the servers. The connections were to allow thrr local host to connect to the Jump Box and for the Jump Box to connect to each of ther servers. Going through this required thorough analysis and persistent checking of the firewall inbound implementaions to ensure all rule were correct. If there was a moment where I could connecting via SSH, I first would always check to make sure my VMs were on. Once verified that all VMs are on, then I check if ip addresses are correct. Ip address can be a common mistake and easily overlooked mostly becaus esome people may want to jump straight to the  difficult and more complicated aspects of the problem before addressing the simple ones. After verifying ip addresses, I'd then check my inbound rules. My rules should have it to where from my local host, I can SSH into the Jump Box Provisioner VM. From my Jump Box VM, I can SSH into each of the web VMs and the Elk VM. Not only would  I check my firewall rules but I would also check my load balancer rules. Finally, I'd check all the SSH keys. I'd ensure the keys would  be set to public key and not a private key. 
+
+When looking through the Azure UI, I know that when I am looking for my rules go to Network security groups. If I have multiple security gorups, if there's a problem with a VM in the Red team group, I first verify the VM is in the right network security group, then proceed to view the network security group rules. 
+If there was a problem with the public keys I would generate new keys and update the VMs. If I couldn't connect to the docker website I would check the ansible files to ensure that the VMs ip addresses were added into the files. To test connectivity I would attempt to SSH into the VM. 
+
+My solution does guarantee that my network is now "immune" to all unauthorized users. To monitor suspiciuos activity I would immplement a logging system that would log and monitor every login attempt in the network.
